@@ -1,19 +1,44 @@
-const mySwiper = () => new Swiper('.swiper-container', {
-	loop: true,
+const swiperMain = (() => {
+	const accountantInit = new Swiper('.swiper', {
+		slidesPerView: 1,
+		spaceBetween: 20,
+		speed: 800,
+		loop: true,
+		preloadImages: false,
+		lazy: true,
+		autoplay: {
+			delay: 5500,
+			disableOnInteraction: false,
+		},
+		centerInsufficientSlides: true,
+		effect: 'fade',
+		fadeEffect: {
+			crossFade: true,
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			type: 'bullets',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		scrollbar: {
+			el: '.swiper-scrollbar',
+			draggable: true,
+		},
+		breakpoints: {
+			768: {
+				spaceBetween: 40,
+				slidesPerView: 1,
+			},
+		},
+	});
 
-	// If we need pagination
-	pagination: {
-		el: '.swiper-pagination',
-	},
+	const init = () => {};
 
-	// Navigation arrows
-	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev',
-	},
-
-	// And if we need scrollbar
-	scrollbar: {
-		el: '.swiper-scrollbar',
-	},
-}
+	return {
+		init,
+	};
+})();
