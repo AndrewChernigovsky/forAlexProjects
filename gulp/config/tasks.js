@@ -5,8 +5,11 @@ module.exports = [
 	'./gulp/tasks/browserSync.js',
 	'./gulp/tasks/watcher.js',
 	'./gulp/tasks/sass.js',
+	// './gulp/tasks/sassMQ.js',
 	'./gulp/tasks/script.js',
 	'./gulp/tasks/libsCSS.js',
 	'./gulp/tasks/images.js',
-	'./gulp/tasks/jimpFoo.js',
+	'./gulp/tasks/jimpContent.js',
+	'./gulp/tasks/jimpDecor.js',
+	'./gulp/tasks/svgSprite.js',
 ];

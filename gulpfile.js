@@ -6,8 +6,6 @@ global.$ = {
 	bs: require('browser-sync').create(),
 	sass: require('gulp-sass')(require('sass')),
 	cleanCSS: require('gulp-clean-css'),
-	squoosh: require('gulp-squoosh'),
-
 
 	path: {
 		tasks: require('./gulp/config/tasks.js')
@@ -18,17 +16,43 @@ $.path.tasks.forEach(function (taskPath) {
 	require(taskPath)();
 });
 
+$.gulp.task(
+	'resizes',
+
+	$.gulp.series(
+		'jimpContent',
+		'jimpDecor',
+		'images',
+		'svgSprite'
+	)
+)
 
 $.gulp.task(
 	'default',
 	$.gulp.series(
-		'copyBuild',
 		'del',
 		'copy',
 		'libsCSS',
-		'jimpFoo',
+		$.gulp.parallel(
+			'pug',
+			'sassBase',
+			'sass',
+			'sassMQ',
+			'script-lib',
+			'script'
+		),
+		$.gulp.parallel('watcher', 'serve')
+	)
+);
+
+$.gulp.task(
+	'build',
+	$.gulp.series(
+		'del',
+		'copy',
+		'resizes',
+		'libsCSS',
 		$.gulp.parallel('pug', 'sass', 'script-lib', 'script'),
-		'images',
 		$.gulp.parallel('watcher', 'serve')
 	)
 );
