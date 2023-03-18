@@ -1,5 +1,4 @@
 module.exports = function () {
-
 	$.gulp.task('sass', function () {
 		return $.gulp
 			.src([
@@ -11,14 +10,9 @@ module.exports = function () {
 			])
 			.pipe($.gp.concat('styles.sass'))
 			.pipe($.sass().on('error', $.sass.logError))
-			.pipe(
-				$.gp.autoprefix({
-					browsers: ['> 2%', 'ie >= 10'],
-					grid: true,
-				})
-			)
 			.pipe($.gp.sourcemaps.init())
 			.pipe($.cleanCSS())
+			.pipe($.gp.autoprefixer())
 			.pipe($.gp.sourcemaps.write())
 			.pipe($.gp.rename('styles.css'))
 			.pipe($.gulp.dest('./build/css'));
@@ -35,14 +29,9 @@ module.exports = function () {
 			])
 			.pipe($.gp.concat('styles-mq.sass'))
 			.pipe($.sass().on('error', $.sass.logError))
-			.pipe(
-				$.gp.autoprefix({
-					browsers: ['> 2%', 'ie >= 10'],
-					grid: true,
-				})
-			)
 			.pipe($.gp.sourcemaps.init())
 			.pipe($.cleanCSS())
+			.pipe($.gp.autoprefixer())
 			.pipe($.gp.sourcemaps.write())
 			.pipe($.gp.rename('styles-mq.css'))
 			.pipe($.gulp.dest('./build/css'));
@@ -59,16 +48,12 @@ module.exports = function () {
 			])
 			.pipe($.gp.concat('styles-default.sass'))
 			.pipe($.sass().on('error', $.sass.logError))
-			.pipe(
-				$.gp.autoprefix({
-					browsers: ['> 2%', 'ie >= 10'],
-					grid: true,
-				})
-			)
 			.pipe($.gp.sourcemaps.init())
 			.pipe($.cleanCSS())
+			.pipe($.gp.autoprefixer())
 			.pipe($.gp.sourcemaps.write())
 			.pipe($.gp.rename('styles-default.css'))
-			.pipe($.gulp.dest('./build/css'));
+			.pipe($.gulp.dest('./build/css'))
+			.on('end', $.bs.reload);
 	});
 };

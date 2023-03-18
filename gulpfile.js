@@ -16,6 +16,7 @@ $.path.tasks.forEach(function (taskPath) {
 	require(taskPath)();
 });
 
+
 $.gulp.task(
 	'resizes',
 
@@ -32,14 +33,15 @@ $.gulp.task(
 	$.gulp.series(
 		'del',
 		'copy',
-		'libsCSS',
+        'libsCSS',
+
 		$.gulp.parallel(
-			'pug',
+            'pug',
 			'sassBase',
 			'sass',
-			'sassMQ',
+            'sassMQ',
 			'script-lib',
-			'script'
+			'script11'
 		),
 		$.gulp.parallel('watcher', 'serve')
 	)
