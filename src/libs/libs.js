@@ -2,9 +2,8 @@
 //
 // For import ES6+ with transpiling to ES5, put sources into 'es6' array
 module.exports = {
-  es5: ['./node_modules/jquery/dist/jquery.min.js'],
-  es6: [
-    // './node_modules/your-plugin/es6/your-plugin.js',
-    'node_modules/swiper/swiper-bundle.min.js',
-  ],
+	es5: ['./node_modules/jquery/dist/jquery.min.js','node_modules/swiper/swiper-bundle.min.js'],
+	es6: [
+		// './node_modules/your-plugin/es6/your-plugin.js',
+	],
 };

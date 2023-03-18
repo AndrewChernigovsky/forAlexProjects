@@ -1,11 +1,9 @@
 import swiperMain from './components/swiper';
-import tabs from './components/tabs';
-
-
+import tabs from './components/tabs.js';
 
 (($) => {
     $(() => {
-        swiperMain.init();
-        tabs.init();
+		swiperMain.init()
+		tabs.init()
 	})
 })(jQuery);

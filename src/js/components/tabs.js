@@ -3,38 +3,41 @@ const wrapList = document.querySelectorAll('.js-tabs');
 
 const tabs = (() => {
   const tabsInit = () => {
-    if (!wrapList.length) return;
-    wrapList.forEach((wrap) => attachEvents(wrap));
+    // if (!wrapList.length) return;
+    // wrapList.forEach((wrap) => attachEvents(wrap));
 
-    function attachEvents(parent) {
-      const tabList = parent.querySelectorAll('[data-tab]'),
-        contentList = parent.querySelectorAll('[data-content]');
 
-      if (!tabList.length) return;
+    // function attachEvents(parent) {
+    //   const tabList = parent.querySelectorAll('[data-tab]'),
+    //     contentList = parent.querySelectorAll('[data-content]');
 
-      tabList.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          tabList.forEach((btn) => btn.classList.remove(CLASS_ACTIVE));
-          e.currentTarget.classList.add(CLASS_ACTIVE);
+    //   if (!tabList.length) return;
 
-          const idContent = e.currentTarget.dataset.tab;
+    //   tabList.forEach((btn) => {
+    //     btn.addEventListener('click', (e) => {
+    //       tabList.forEach((btn) => btn.classList.remove(CLASS_ACTIVE));
+    //       e.currentTarget.classList.add(CLASS_ACTIVE);
 
-          if (idContent === 'all') {
-            contentList.forEach((content) => content.classList.add(CLASS_ACTIVE));
-          } else {
-            const currentContentList = document.querySelectorAll(`[data-content="${idContent}"]`);
+    //       const idContent = e.currentTarget.dataset.tab;
 
-            contentList.forEach((content) => content.classList.remove(CLASS_ACTIVE));
+    //       if (idContent === 'all') {
+    //         contentList.forEach((content) => content.classList.add(CLASS_ACTIVE));
+    //       } else {
+    //         const currentContentList = document.querySelectorAll(`[data-content="${idContent}"]`);
 
-            currentContentList.forEach((content) => content.classList.add(CLASS_ACTIVE));
-          }
-        });
-      });
-    }
+    //         contentList.forEach((content) => content.classList.remove(CLASS_ACTIVE));
+
+    //         currentContentList.forEach((content) => content.classList.add(CLASS_ACTIVE));
+    //       }
+    //     });
+    //   });
+    // }
+
+	  console.log('part');
   };
 
   const init = () => {
-    tabsInit();
+	 return  tabsInit();
   };
 
   return {
@@ -42,3 +45,4 @@ const tabs = (() => {
   };
 })();
 
+export default tabs;

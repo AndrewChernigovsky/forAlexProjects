@@ -33,13 +33,12 @@ $.gulp.task(
 	$.gulp.series(
 		'del',
 		'copy',
-        'libsCSS',
+		'libsCSS',
 
 		$.gulp.parallel(
-            'pug',
-			'sassBase',
-			'sass',
-            'sassMQ',
+			'pug',
+
+			$.gulp.series('sassBase', 'sass', 'sassMQ'),
 			'script-lib',
 			'script11'
 		),

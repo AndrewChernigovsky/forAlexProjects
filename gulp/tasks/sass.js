@@ -1,4 +1,25 @@
 module.exports = function () {
+
+	$.gulp.task('sassBase', function () {
+		return $.gulp
+			.src([
+				'./src/sass/default.sass',
+				'!./src/pug/components/**/**/*-d.sass',
+				'!./src/sass/styles-d.sass',
+				'!./src/pug/components/**/**/*-mq.sass',
+				'!./src/sass/styles-mq.sass',
+			])
+			.pipe($.gp.concat('styles-default.sass'))
+			.pipe($.sass().on('error', $.sass.logError))
+			.pipe($.gp.sourcemaps.init())
+			.pipe($.cleanCSS())
+			.pipe($.gp.autoprefixer())
+			.pipe($.gp.sourcemaps.write())
+			.pipe($.gp.rename('styles-default.css'))
+			.pipe($.gulp.dest('./build/css'))
+			.on('end', $.bs.reload);
+	});
+
 	$.gulp.task('sass', function () {
 		return $.gulp
 			.src([
@@ -35,25 +56,5 @@ module.exports = function () {
 			.pipe($.gp.sourcemaps.write())
 			.pipe($.gp.rename('styles-mq.css'))
 			.pipe($.gulp.dest('./build/css'));
-	});
-
-	$.gulp.task('sassBase', function () {
-		return $.gulp
-			.src([
-				'./src/sass/**/default.sass',
-				'!./src/pug/components/**/**/*-d.sass',
-				'!./src/sass/styles-d.sass',
-				'!./src/pug/components/**/**/*-mq.sass',
-				'!./src/sass/styles-mq.sass',
-			])
-			.pipe($.gp.concat('styles-default.sass'))
-			.pipe($.sass().on('error', $.sass.logError))
-			.pipe($.gp.sourcemaps.init())
-			.pipe($.cleanCSS())
-			.pipe($.gp.autoprefixer())
-			.pipe($.gp.sourcemaps.write())
-			.pipe($.gp.rename('styles-default.css'))
-			.pipe($.gulp.dest('./build/css'))
-			.on('end', $.bs.reload);
 	});
 };
