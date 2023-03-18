@@ -42,5 +42,3 @@ const swiperMain = (() => {
 		init,
 	};
 })();
-
-// export default swiperMain

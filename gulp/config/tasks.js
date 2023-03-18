@@ -6,6 +6,7 @@ module.exports = [
   './gulp/tasks/watcher.js',
   './gulp/tasks/sass.js',
   './gulp/tasks/script.js',
+  './gulp/tasks/scriptLib.js',
   './gulp/tasks/script11.js',
   './gulp/tasks/libsCSS.js',
   './gulp/tasks/images.js',
