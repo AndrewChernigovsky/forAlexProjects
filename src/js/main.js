@@ -1,9 +1,10 @@
-import swiperMain from './components/swiper';
-import tabs from './components/tabs.js';
+// import swiperMain from './components/swiper';
+import { tabs } from './components/tabs.js';
+import { accordion } from './components/accordion.js';
 
 (($) => {
-    $(() => {
-		swiperMain.init()
-		tabs.init()
-	})
-})(jQuery);
+	$(() => {
+		tabs()
+		accordion()
+	}
+)})(jQuery);

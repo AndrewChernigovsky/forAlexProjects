@@ -1,23 +1,18 @@
-.js-tabs.tabs
+.tabs.js-tabs
 	ul.tabs__header
 		li.tabs__btn.active(data-tab="tab-one") One
 		li.tabs__btn(data-tab="tab-two") Two
-		li.tabs__btn(data-tab="tab-tree") Three
+		li.tabs__btn(data-tab="tab-three") Three
 	.tabs__content.active(data-content="tab-one")
-		ul
-			li text1
-			li text1
-			li text1
-			li text1
+		.tabs__item text1
+		.tabs__item text2
+		.tabs__item text3
 	.tabs__content(data-content="tab-two")
-		ul
-			li text2
-			li text2
-			li text2
-			li text2
+		.tabs__item text11
+		.tabs__item text22
+		.tabs__item text33
 	.tabs__content(data-content="tab-three")
-		ul
-			li text3
-			li text3
-			li text3
-			li text3
+		.tabs__item text13
+		.tabs__item text23
+		.tabs__item text33
+
