@@ -1,0 +1,38 @@
+.container
+	.header
+		h2 Create Account
+
+	form(action="" class="form" id="form" name='registration')
+		.form-control
+			label Username
+			input(type="text" placeholder="Your username" id="username")
+			i.fas.fa-check-circle
+			i.fas.fa-exclamation-circle
+			small Error message
+
+		.form-control
+			label Email
+			input(type="email" placeholder="Your Email" id="email")
+			i.fas.fa-check-circle
+			i.fas.fa-exclamation-circle
+			small Error message
+
+		.form-control
+			label Password
+			input(type="password" placeholder="Your password" id="password")
+			i.fas.fa-check-circle
+			i.fas.fa-exclamation-circle
+			i.far.fa-eye(id="show" onclick="togglePassword()")
+			i.far.fa-eye-slash(id="hide" onclick="togglePassword()")
+			small Error message
+
+		.form-control
+			label Confirm
+			input(type="password" placeholder="Your password again" id="password2")
+			i.fas.fa-check-circle
+			i.fas.fa-exclamation-circle
+			i.far.fa-eye(id="show2" onclick="toggleConfirm()")
+			i.far.fa-eye-slash(id="hide2" onclick="toggleConfirm()")
+			small Error message
+
+		button Submit
