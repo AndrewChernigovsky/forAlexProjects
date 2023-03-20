@@ -2,7 +2,7 @@
 	.header
 		h2 Create Account
 
-	form(action="" class="form" id="form-registration" name='registration')
+	form.form-block.js-form-block(action="" class="form" id="form-registration" name='registration')
 		.form-control
 			label Username
 			input(type="text" placeholder="Your username" id="username-registration" data-name='name')
@@ -19,10 +19,10 @@
 			label Password
 			input(type="password" placeholder="Your password" id="password-registration" data-name='password')
 
-			span.icon(id="show-registration" data-name='show' onclick="togglePassword()")
+			span.icon(id="show-registration" data-icon='show' onclick="togglePassword()")
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
-			span.icon(id="hide-registration" data-name='hide'  onclick="togglePassword()")
+			span.icon(id="hide-registration" data-icon='hide'  onclick="togglePassword()")
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
 
@@ -31,13 +31,13 @@
 		.form-control
 			label Confirm
 			input(type="password" placeholder="Your password again" id="passwordConfirm-registration" data-name='passwordConfirm')
-			span.icon(id="showConfirm-registration" data-name='showConfirm'  onclick="toggleConfirm()")
+			span.icon(id="showConfirm-registration" data-icon='showConfirm'  onclick="toggleConfirm()")
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
 			span.icon(id="hideConfirm-registration"
-			data-name='hideConfirm' onclick="toggleConfirm()")
+			data-icon='hideConfirm' onclick="toggleConfirm()")
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
 			small Error message
 
-		button Submit
+		button(type="submit") Submit1

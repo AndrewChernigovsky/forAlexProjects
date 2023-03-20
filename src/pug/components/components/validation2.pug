@@ -1,0 +1,43 @@
+.container
+	.header
+		h2 Create Account
+
+	form.form-block.js-form-block(action="" class="form" id="form-registration1" name='registration1')
+		.form-control
+			label Username
+			input(type="text" placeholder="Your username" id="username-registration1" data-name='name')
+			span
+			small Error message
+
+		.form-control
+			label Email
+			input(type="email" placeholder="Your Email" id="email-registration1" data-name='email')
+			span
+			small Error message
+
+		.form-control
+			label Password
+			input(type="password" placeholder="Your password" id="password-registration1" data-name='password')
+
+			span.icon(id="show-registration1" data-name='show' onclick="togglePassword()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
+			span.icon(id="hide-registration1" data-name='hide'  onclick="togglePassword()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
+
+			small Error message
+
+		.form-control
+			label Confirm
+			input(type="password" placeholder="Your password again" id="passwordConfirm-registration1" data-name='passwordConfirm')
+			span.icon(id="showConfirm-registration1" data-name='showConfirm'  onclick="toggleConfirm()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
+			span.icon(id="hideConfirm-registration1"
+			data-name='hideConfirm' onclick="toggleConfirm()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
+			small Error message
+
+		button(type="submit") Submit2

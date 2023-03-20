@@ -6,7 +6,7 @@ module.exports = function () {
 
         $.gulp.watch(['./src/sass/**/*.sass', './src/pug/components/**/**/*.sass'], $.gulp.series('sass', 'sassMQ', 'sassBase', 'pug'));
 
-		$.gulp.watch('./src/js/*.js', $.gulp.series('script'));
+		$.gulp.watch('./src/**/**/*.js', $.gulp.series('script-lib', 'script11', 'script'));
 		$.gp.plumber.stop()
 	});
 };
