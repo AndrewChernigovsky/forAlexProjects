@@ -38,7 +38,7 @@ body
 		width: 25px
 		height: 25px
 		right: 10px
-		top: 30px
+		top: 32px
 
 		svg
 			width: 25px
@@ -56,32 +56,43 @@ body
 	font-size: 14px
 	padding: 10px
 	width: 100%
+	position: relative
 
 .form-control.success input
 	border-color: #2ecc71
 
+.form-control.success label
+	position: relative
+
+	&:before
+		content: ''
+		position: absolute
+		background-image: url('../icons-svg/status/check.svg')
+		background-size: 30px
+		background-position: center
+		background-repeat: no-repeat
+		width: 25px
+		height: 25px
+		right: -26px
+		top: -3px
+
 .form-control.error input
 	border-color: #e74c3c
 
-.form-control.success span.far
-	visibility: visible
-	color: #2ecc71
-	top: 36px
-	right: 30px
-	width: 40px
-	height: 40px
-	display: block
-	// background-image: url('../icons-svg/password/eyePassword.svg')
+.form-control.error label
+	position: relative
 
-.form-control.error span.far
-	visibility: visible
-	color: #e74c3c
-	top: 36px
-	right: 30px
-	width: 40px
-	height: 40px
-	display: block
-	// background-image: url('../icons-svg/password/eyePasswordClose.svg')
+	&:before
+		content: ''
+		position: absolute
+		background-image: url('../icons-svg/status/clear.svg')
+		background-size: 30px
+		background-position: center
+		background-repeat: no-repeat
+		width: 25px
+		height: 25px
+		right: -26px
+		top: -3px
 
 .form-control small
 	visibility: hidden

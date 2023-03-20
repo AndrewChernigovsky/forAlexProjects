@@ -15,14 +15,15 @@
 			span
 			small Error message
 
+
 		.form-control
 			label Password
 			input(type="password" placeholder="Your password" id="password-registration" data-name='password')
 
-			span.icon(id="show-registration" data-icon='show' onclick="togglePassword()")
+			span.icon(id="show-registration" data-icon='show')
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
-			span.icon(id="hide-registration" data-icon='hide'  onclick="togglePassword()")
+			span.icon(id="hide-registration" data-icon='hide' )
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
 
@@ -31,11 +32,11 @@
 		.form-control
 			label Confirm
 			input(type="password" placeholder="Your password again" id="passwordConfirm-registration" data-name='passwordConfirm')
-			span.icon(id="showConfirm-registration" data-icon='showConfirm'  onclick="toggleConfirm()")
+			span.icon(id="showConfirm-registration" data-icon='showConfirm' )
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
 			span.icon(id="hideConfirm-registration"
-			data-icon='hideConfirm' onclick="toggleConfirm()")
+			data-icon='hideConfirm')
 				svg
 					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
 			small Error message
