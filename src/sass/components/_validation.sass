@@ -1,12 +1,11 @@
+@import https://fonts.googleapis.com/css?family=Raleway&display=swap
+
 *
 	box-sizing: border-box
 
 body
 	font-family: 'Raleway', sans-serif
 	background: #9b59b6
-// display: flex
-// align-items: center
-// justify-content: center
 	min-height: 100vh
 	margin: 0
 
@@ -34,6 +33,17 @@ body
 	padding-bottom: 20px
 	position: relative
 
+	span.icon
+		position: absolute
+		width: 25px
+		height: 25px
+		right: 10px
+		top: 30px
+
+		svg
+			width: 25px
+			height: 25px
+
 .form-control label
 	display: inline-block
 	margin-bottom: 5px
@@ -53,31 +63,25 @@ body
 .form-control.error input
 	border-color: #e74c3c
 
-.form-control i
-	visibility: hidden
-	position: absolute
-	top: 36px
-	right: 10px
-
-.form-control i.fa-eye
-	visibility: visible
-	cursor: pointer
-
-.form-control i.fa-eye-slash
-	visibility: hidden
-	cursor: pointer
-
-.form-control.success i.fa-check-circle
+.form-control.success span.far
 	visibility: visible
 	color: #2ecc71
 	top: 36px
 	right: 30px
+	width: 40px
+	height: 40px
+	display: block
+	// background-image: url('../icons-svg/password/eyePassword.svg')
 
-.form-control.error i.fa-exclamation-circle
+.form-control.error span.far
 	visibility: visible
 	color: #e74c3c
 	top: 36px
 	right: 30px
+	width: 40px
+	height: 40px
+	display: block
+	// background-image: url('../icons-svg/password/eyePasswordClose.svg')
 
 .form-control small
 	visibility: hidden

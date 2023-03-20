@@ -24,7 +24,6 @@ $.gulp.task(
 		'jimpContent',
 		'jimpDecor',
 		'images',
-		'svgSprite'
 	)
 )
 
@@ -34,6 +33,7 @@ $.gulp.task(
 		'del',
 		'copy',
 		'libsCSS',
+		'svgSprite',
 
 		$.gulp.parallel(
 			'pug',

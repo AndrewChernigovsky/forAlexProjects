@@ -1,26 +1,28 @@
-const $form = $("form[name='registration']")
+const $form = $("form[name='registration']");
 // const $successMsg = $('.alert')
 
 export function validation() {
-	const form = document.querySelector("form[name='registration']");
+	const form = document.querySelectorAll("form");
 
-	const username = document.getElementById('username');
-	const email = document.getElementById('email');
-	const password = document.getElementById('password');
-	const password2 = document.getElementById('password2');
+	const username = document.querySelector("input[data-name='name']");
+	const email = document.querySelector("input[data-name='email']");
+	const password = document.querySelector("input[data-name='password']");
+	const passwordConfirm = document.querySelector("input[data-name='passwordConfirm']");
 
-	form.addEventListener('submit', (e) => {
-		e.preventDefault();
 
-		checkInputs();
-	});
+	form.forEach((el) => {
+		el.addEventListener('submit', (e) => {
+			e.preventDefault();
+			checkInputs();
+		});
+	})
 
 	const checkInputs = () => {
 		// Get values from the inputs
 		const usernameValue = username.value.trim();
 		const emailValue = email.value.trim();
 		const passwordValue = password.value.trim();
-		const password2Value = password2.value.trim();
+		const passwordConfirmValue = passwordConfirm.value.trim();
 
 		if (!usernameValue) {
 			//Show error
@@ -60,16 +62,16 @@ export function validation() {
 			setSuccessFor(password);
 		}
 
-		if (!password2Value) {
+		if (!passwordConfirmValue) {
 			//Show error
 			//Add error class
-			setErrorFor(password2, 'write again your password');
-		} else if (passwordValue !== password2Value) {
+			setErrorFor(passwordConfirm, 'write again your password');
+		} else if (passwordValue !== passwordConfirmValue) {
 			//Add succes class
-			setErrorFor(password2, 'does not match');
+			setErrorFor(passwordConfirm, 'does not match');
 		} else {
 			//Add succes class
-			setSuccessFor(password2);
+			setSuccessFor(passwordConfirm);
 		}
 
 		//HomeWork mostrar un mensaje de exito al hacer click y todo este correcto
@@ -99,40 +101,34 @@ export function validation() {
 			email
 		);
 	};
-
-
-
-	password.addEventListener('click',
-		function () {
-			const psw = document.getElementById('password');
-			const show = document.getElementById('show');
-			const hide = document.getElementById('hide');
-
-			if (psw.type === 'password') {
-				psw.type = 'text';
-				show.style.visibility = 'hidden';
-				hide.style.visibility = 'visible';
-			} else {
-				psw.type = 'password';
-				show.style.visibility = 'visible';
-				hide.style.visibility = 'hidden';
-			}
-		})
-
-	password2.addEventListener('click',
-		function () {
-			const confirm = document.getElementById('password2');
-			const show2 = document.getElementById('show2');
-			const hide2 = document.getElementById('hide2');
-
-			if (confirm.type === 'password') {
-				confirm.type = 'text';
-				show2.style.visibility = 'hidden';
-				hide2.style.visibility = 'visible';
-			} else {
-				confirm.type = 'password';
-				show2.style.visibility = 'visible';
-				hide2.style.visibility = 'hidden';
-			}
-		})
 }
+
+// const togglePassword = () => {
+// 	const psw = document.getElementById('password');
+
+// 	if (psw.type === 'password') {
+// 		psw.type = 'text';
+// 		show.style.visibility = 'hidden';
+// 		hide.style.visibility = 'visible';
+// 	} else {
+// 		psw.type = 'password';
+// 		show.style.visibility = 'visible';
+// 		hide.style.visibility = 'hidden';
+// 	}
+// };
+
+// const toggleConfirm = () => {
+// 	const confirm = document.getElementById('passwordConfirm');
+
+// 	if (confirm.type === 'password') {
+// 		confirm.type = 'text';
+// 		show2.style.visibility = 'hidden';
+// 		hide2.style.visibility = 'visible';
+// 	} else {
+// 		confirm.type = 'password';
+// 		show2.style.visibility = 'visible';
+// 		hide2.style.visibility = 'hidden';
+// 	}
+// };
+
+// export default {togglePassword, toggleConfirm}

@@ -36,3 +36,35 @@ html(lang="en")
 
 	script(src="libs/libs.min.js")
 	script(src="js/main.min.js" type="module")
+	script.
+		const show = document.querySelector("span[data-name='show']");
+		const hide = document.querySelector("span[data-name='hide']");
+		const showConfirm = document.querySelector("span[data-name='showConfirm']");
+		const hideConfirm = document.querySelector("span[data-name='hideConfirm']");
+
+		const togglePassword = () => {
+			const psw = document.querySelector("input[data-name='password']");
+
+			if (psw.type === 'password') {
+				psw.type = 'text';
+				show.style.visibility = 'hidden';
+				hide.style.visibility = 'visible';
+			} else {
+				psw.type = 'password';
+				show.style.visibility = 'visible';
+				hide.style.visibility = 'hidden';
+			}
+		}
+		const toggleConfirm = () => {
+			const confirm = document.querySelector("input[data-name='passwordConfirm']");
+
+			if (confirm.type === 'password') {
+				confirm.type = 'text';
+				showConfirm.style.visibility = 'hidden';
+				hideConfirm.style.visibility = 'visible';
+			} else {
+				confirm.type = 'password';
+				showConfirm.style.visibility = 'visible';
+				hideConfirm.style.visibility = 'hidden';
+			}
+		};

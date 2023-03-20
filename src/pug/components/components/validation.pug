@@ -2,37 +2,42 @@
 	.header
 		h2 Create Account
 
-	form(action="" class="form" id="form" name='registration')
+	form(action="" class="form" id="form-registration" name='registration')
 		.form-control
 			label Username
-			input(type="text" placeholder="Your username" id="username")
-			i.fas.fa-check-circle
-			i.fas.fa-exclamation-circle
+			input(type="text" placeholder="Your username" id="username-registration" data-name='name')
+			span
 			small Error message
 
 		.form-control
 			label Email
-			input(type="email" placeholder="Your Email" id="email")
-			i.fas.fa-check-circle
-			i.fas.fa-exclamation-circle
+			input(type="email" placeholder="Your Email" id="email-registration" data-name='email')
+			span
 			small Error message
 
 		.form-control
 			label Password
-			input(type="password" placeholder="Your password" id="password")
-			i.fas.fa-check-circle
-			i.fas.fa-exclamation-circle
-			i.far.fa-eye(id="show" onclick="togglePassword()")
-			i.far.fa-eye-slash(id="hide" onclick="togglePassword()")
+			input(type="password" placeholder="Your password" id="password-registration" data-name='password')
+
+			span.icon(id="show-registration" data-name='show' onclick="togglePassword()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
+			span.icon(id="hide-registration" data-name='hide'  onclick="togglePassword()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
+
 			small Error message
 
 		.form-control
 			label Confirm
-			input(type="password" placeholder="Your password again" id="password2")
-			i.fas.fa-check-circle
-			i.fas.fa-exclamation-circle
-			i.far.fa-eye(id="show2" onclick="toggleConfirm()")
-			i.far.fa-eye-slash(id="hide2" onclick="toggleConfirm()")
+			input(type="password" placeholder="Your password again" id="passwordConfirm-registration" data-name='passwordConfirm')
+			span.icon(id="showConfirm-registration" data-name='showConfirm'  onclick="toggleConfirm()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePassword")
+			span.icon(id="hideConfirm-registration"
+			data-name='hideConfirm' onclick="toggleConfirm()")
+				svg
+					use(xlink:href="icons-svg/sprite.svg#password--eyePasswordClose")
 			small Error message
 
 		button Submit
