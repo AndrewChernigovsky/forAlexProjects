@@ -1,5 +1,54 @@
 const formList = document.querySelectorAll('.js-form-block');
 
+
+let inputInfoError = {
+	mesEng: 'Field cannot be blank',
+	mesRus: 'Поле должно быть заполнено',
+
+};
+
+let errorInfoUsername = {
+
+	eng1: 'Username not valid',
+	rus1: 'Имя введено некорректно',
+};
+
+let errorInfoPassword = {
+	eng: 'Username cannot be blank',
+	eng1: 'Username not valid',
+	eng2: 'it have to contains a upper, lower and a number',
+	eng3: 'write again your password',
+	eng4: 'does not match',
+	rus: 'Поле должно быть заполнено',
+	rus1: 'Имя введено некорректно',
+	rus2: 'Пароль должен содержать заглавные буквы, низкие и цифры',
+	rus3: 'Введите снова ваш пароль',
+	rus4: 'Нет совпадений',
+};
+
+let errorInfoEmail = {
+	eng: 'Username cannot be blank',
+	eng1: 'Username not valid',
+	rus: 'Поле должно быть заполнено',
+	rus1: 'Имя введено некорректно',
+};
+
+let errorInfoConfirm = {
+	eng: 'Username cannot be blank',
+	eng1: 'Username not valid',
+	rus: 'Поле должно быть заполнено',
+	rus1: 'Имя введено некорректно',
+};
+
+let errorInfoPhone = {
+	eng: 'Username cannot be blank',
+	eng1: 'Username not valid',
+	rus: 'Поле должно быть заполнено',
+	rus1: 'Имя введено некорректно',
+};
+
+
+
 export function validation() {
 	if (!formList.length) return;
 
@@ -13,6 +62,8 @@ export function validation() {
 		const password = parent.querySelector("input[data-name='password']");
 		const passwordConfirm = parent.querySelector("input[data-name='passwordConfirm']");
 		const phone = parent.querySelector("input[data-name='phone']");
+
+		const iconsPasswordList = parent.querySelectorAll("span[data-icon='icon']");
 
 		if (!formInputList.length) return;
 
@@ -28,7 +79,7 @@ export function validation() {
 				usernameValue = username.value.trim();
 
 				if (!usernameValue) {
-					setErrorFor(username, 'Username cannot be blank');
+					setErrorFor(username, inputInfoError.mesRus);
 				} else {
 					setSuccessFor(username);
 				}
@@ -37,9 +88,9 @@ export function validation() {
 				emailValue = email.value.trim();
 
 				if (!emailValue) {
-					setErrorFor(email, 'Email cannot be blank');
+					setErrorFor(email, inputInfoError.mesRus);
 				} else if (!isEmail(emailValue)) {
-					setErrorFor(email, 'Email is not valid');
+					setErrorFor(email, errorInfoUsername.rus1);
 				} else {
 					setSuccessFor(email);
 				}
@@ -48,11 +99,11 @@ export function validation() {
 				passwordValue = password.value.trim();
 
 				if (!passwordValue) {
-					setErrorFor(password, 'Password cannot be blank');
+					setErrorFor(password, inputInfoError.mesRus);
 				} else if (passwordValue.length < 8) {
-					setErrorFor(password, 'Password to short');
+					setErrorFor(password, errorInfoUsername.rus1);
 				} else if (!passwordValue.match(passwordRegex)) {
-					setErrorFor(password, 'it have to contains a upper, lower and a number');
+					setErrorFor(password, errorInfoPassword.rus2);
 				} else {
 					setSuccessFor(password);
 				}
@@ -61,9 +112,9 @@ export function validation() {
 				passwordConfirmValue = passwordConfirm.value.trim();
 
 				if (!passwordConfirmValue) {
-					setErrorFor(passwordConfirm, 'write again your password');
+					setErrorFor(passwordConfirm, inputInfoError.mesRus);
 				} else if (passwordValue !== passwordConfirmValue) {
-					setErrorFor(passwordConfirm, 'does not match');
+					setErrorFor(passwordConfirm, errorInfoPassword.rus4);
 				} else {
 					setSuccessFor(passwordConfirm);
 				}
@@ -80,6 +131,15 @@ export function validation() {
 				}
 			}
 		};
+
+		iconsPasswordList.forEach((icon) => {
+			icon.addEventListener('click', () => {
+				icon.classList.toggle('show')
+				icon.classList.contains('show')
+					? (password.type = 'text' && (passwordConfirm.type = 'text'))
+					: (password.type = 'password' && (passwordConfirm.type = 'password'));
+			})
+		 });
 
 		parent.addEventListener('submit', (e) => {
 			e.preventDefault();
@@ -109,4 +169,7 @@ export function validation() {
 	const isPhone = (phone) => {
 		return /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(phone);
 	};
+
+
+
 }

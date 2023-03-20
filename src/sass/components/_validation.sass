@@ -114,3 +114,21 @@ body
 	padding: 10px
 	font-size: 16px
 	font-family: inherit
+
+.form span[data-icon].show,
+.form span[data-icon]
+	width: 25px
+	height: 25px
+	background-position: center
+	background-size: contain
+	cursor: pointer
+	transition: 0.3s ease-in-out
+
+	&:hover
+		opacity: 0.6
+
+.form span[data-icon].show
+	background-image: url('../icons-svg/password/eyePassword.svg')
+
+.form span[data-icon]
+	background-image: url('../icons-svg/password/eyePasswordClose.svg')
