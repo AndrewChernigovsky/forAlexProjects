@@ -1,5 +1,5 @@
-const swiperMain = (() => {
-	const accountantInit = new Swiper('.swiper', {
+export function swiperMain() {
+	const i = new Swiper('.swiper', {
 		slidesPerView: 1,
 		spaceBetween: 20,
 		speed: 800,
@@ -34,11 +34,5 @@ const swiperMain = (() => {
 				slidesPerView: 1,
 			},
 		},
-	});
-
-	const init = () => {};
-
-	return {
-		init,
-	};
-})();
+	}
+)}

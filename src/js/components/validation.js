@@ -1,14 +1,11 @@
 const formList = document.querySelectorAll('.js-form-block');
 
-
 let inputInfoError = {
 	mesEng: 'Field cannot be blank',
 	mesRus: 'Поле должно быть заполнено',
-
 };
 
 let errorInfoUsername = {
-
 	eng1: 'Username not valid',
 	rus1: 'Имя введено некорректно',
 };
@@ -20,31 +17,11 @@ let errorInfoPassword = {
 	eng3: 'write again your password',
 	eng4: 'does not match',
 	rus: 'Поле должно быть заполнено',
-	rus1: 'Имя введено некорректно',
-	rus2: 'Пароль должен содержать заглавные буквы, низкие и цифры',
+	rus1: 'Пароль введен некорректно',
+	rus2: 'Необходимы заглавные буквы, низкие и цифры',
 	rus3: 'Введите снова ваш пароль',
 	rus4: 'Нет совпадений',
-};
-
-let errorInfoEmail = {
-	eng: 'Username cannot be blank',
-	eng1: 'Username not valid',
-	rus: 'Поле должно быть заполнено',
-	rus1: 'Имя введено некорректно',
-};
-
-let errorInfoConfirm = {
-	eng: 'Username cannot be blank',
-	eng1: 'Username not valid',
-	rus: 'Поле должно быть заполнено',
-	rus1: 'Имя введено некорректно',
-};
-
-let errorInfoPhone = {
-	eng: 'Username cannot be blank',
-	eng1: 'Username not valid',
-	rus: 'Поле должно быть заполнено',
-	rus1: 'Имя введено некорректно',
+	rus5: 'Пароль должен быть больше 8 символов',
 };
 
 
@@ -101,7 +78,7 @@ export function validation() {
 				if (!passwordValue) {
 					setErrorFor(password, inputInfoError.mesRus);
 				} else if (passwordValue.length < 8) {
-					setErrorFor(password, errorInfoUsername.rus1);
+					setErrorFor(password, errorInfoPassword.rus5);
 				} else if (!passwordValue.match(passwordRegex)) {
 					setErrorFor(password, errorInfoPassword.rus2);
 				} else {
@@ -134,12 +111,12 @@ export function validation() {
 
 		iconsPasswordList.forEach((icon) => {
 			icon.addEventListener('click', () => {
-				icon.classList.toggle('show')
+				icon.classList.toggle('show');
 				icon.classList.contains('show')
 					? (password.type = 'text' && (passwordConfirm.type = 'text'))
 					: (password.type = 'password' && (passwordConfirm.type = 'password'));
-			})
-		 });
+			});
+		});
 
 		parent.addEventListener('submit', (e) => {
 			e.preventDefault();
@@ -169,7 +146,4 @@ export function validation() {
 	const isPhone = (phone) => {
 		return /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/.test(phone);
 	};
-
-
-
 }

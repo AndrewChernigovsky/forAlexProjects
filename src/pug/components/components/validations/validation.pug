@@ -5,20 +5,20 @@
 	form.form-block.js-form-block(action="" class="form" id="form-registration" name='registration')
 		.form-control
 			label Username
-			input(type="text" placeholder="Your username" id="username-registration" data-name='name')
+			input(type="text" placeholder="Your username" id="username-registration" data-name='name' required)
 			span
 			small Error message
 
 		.form-control
 			label Email
-			input(type="email" placeholder="Your Email" id="email-registration" data-name='email')
+			input(type="email" placeholder="Your Email" id="email-registration" data-name='email' required)
 			span
 			small Error message
 
 
 		.form-control
 			label Password
-			input(type="password" placeholder="Your password" id="password-registration" data-name='password')
+			input(type="password" placeholder="Your password" id="password-registration" data-name='password' required)
 
 			span.icon(id="show-registration" data-icon='icon')
 
@@ -26,7 +26,7 @@
 
 		.form-control
 			label Confirm
-			input(type="password" placeholder="Your password again" id="passwordConfirm-registration" data-name='passwordConfirm')
+			input(type="password" placeholder="Your password again" id="passwordConfirm-registration" data-name='passwordConfirm' required)
 			span.icon(id="showConfirm-registration" data-icon='icon' )
 			small Error message
 
