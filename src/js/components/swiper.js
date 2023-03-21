@@ -1,5 +1,4 @@
-export function swiperMain() {
-	const i = new Swiper('.swiper', {
+export const swiperMain = new Swiper('.swiper', {
 		slidesPerView: 1,
 		spaceBetween: 20,
 		speed: 800,
@@ -24,15 +23,10 @@ export function swiperMain() {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
 		},
-		scrollbar: {
-			el: '.swiper-scrollbar',
-			draggable: true,
-		},
 		breakpoints: {
 			768: {
 				spaceBetween: 40,
 				slidesPerView: 1,
 			},
 		},
-	}
-)}
+	})

@@ -5,7 +5,7 @@ import { validation } from './components/validation.js';
 
 (($) => {
 	$(() => {
-		swiperMain()
+		swiperMain
 		tabs()
 		accordion()
 		validation()

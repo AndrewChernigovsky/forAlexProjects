@@ -1,4 +1,7 @@
-picture
-	source(srcset="")
-	source(srcset="")
-	img(src="", alt="", srcset="")
+include ./../../../variables/pages/indexVar.pug
+
+each images in section__Images__INTRO
+	picture
+		source(srcset="")
+		source(srcset="")
+		img(src="", alt= images, srcset="")
