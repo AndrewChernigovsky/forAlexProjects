@@ -5,6 +5,6 @@ module.exports = function () {
 			'!build/img/'
 		]
 		)
-			.pipe($.gp.clean({ force: true }))
+			.pipe($.gp.clean())
 	})
 }

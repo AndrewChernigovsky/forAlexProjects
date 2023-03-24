@@ -1,7 +1,11 @@
+include ./../../../variables/variables.pug
 include ./../../../variables/pages/indexVar.pug
 
-each images in section__Images__INTRO
+each path in pathsContent
 	picture
-		source(srcset="")
-		source(srcset="")
-		img(src="", alt= images, srcset="")
+		source(media=mW1440 srcset=`${path.avatar +  '@1x1024x1024' + '.webp 1x,'}` + `${path.avatar + '@2x1024x1024.webp 2x,'}` + `${path.avatar + '@3x1024x1024.webp 3x,'}` + `${path.avatar + '@4x1024x1024.webp 4x,'}` type="image/webp" )
+		source(media=mW1024 srcset=`${path.avatar +  '@1x1024x1024' + '.webp 1x,'}` + `${path.avatar + '@2x1024x1024.webp 2x,'}` + `${path.avatar + '@3x1024x1024.webp 3x,'}` + `${path.avatar + '@4x1024x1024.webp 4x,'}` type="image/webp" )
+		source(media=mW768 srcset=`${path.avatar +  '@1x512x512' + '.webp 1x,'}` + `${path.avatar + '@2x512x512.webp 2x,'}` + `${path.avatar + '@3x512x512.webp 3x,'}` + `${path.avatar + '@4x512x512.webp 4x,'}` type="image/webp" )
+		source(media=mW575 srcset=`${path.avatar +  '@1x512x512' + '.webp 1x,'}` + `${path.avatar + '@2x512x512.webp 2x,'}` + `${path.avatar + '@3x512x512.webp 3x,'}` + `${path.avatar + '@4x512x512.webp 4x,'}` type="image/webp" )
+		source(media=mW320 srcset=`${path.avatar +  '@1x256x256' + '.webp 1x,'}` + `${path.avatar + '@2x256x256.webp 2x,'}` + `${path.avatar + '@3x256x256.webp 3x,'}` + `${path.avatar + '@4x256x256.webp 4x,'}` type="image/webp" )
+		img(src=`${path.avatar +  '@1x256x256' + '.jpg'}` srcset=`${path.avatar + '@2x256x256.jpg 2x,'}` + `${path.avatar + '@1x256x256.jpg 1x'}` alt=path.avatar)

@@ -6,7 +6,6 @@ module.exports = function () {
 				'!./src/sass/**',
 				'!./src/pug/**',
 				'!./src/js/**',
-				'!./src/imgOriginal/**'
 			])
 			.pipe($.gulp.dest('./build'));
 	});

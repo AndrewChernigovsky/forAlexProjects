@@ -20,12 +20,14 @@ $.path.tasks.forEach(function (taskPath) {
 $.gulp.task(
 	'resizes',
 
-	$.gulp.series(
-		'jimpContent',
-		'jimpDecor',
-		'images',
-	)
-)
+	$.gulp.series('jimpContent', 'jimpDecor', 'images')
+);
+
+$.gulp.task('webp', $.gulp.series('images'));
+
+$.gulp.task('images', $.gulp.series('resizes', 'images'));
+
+
 
 $.gulp.task(
 	'default',
@@ -37,6 +39,7 @@ $.gulp.task(
 
 		$.gulp.parallel(
 			'pug',
+			'pugIndex',
 
 			$.gulp.series('sassBase', 'sass', 'sassMQ'),
 			'script-lib',
